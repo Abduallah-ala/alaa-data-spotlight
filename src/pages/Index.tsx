@@ -1,8 +1,9 @@
 
-import { BarChart3, Database, Globe, MessageSquare, TrendingUp, Users, Car, Star, MapPin } from 'lucide-react';
+import { BarChart3, Database, Globe, MessageSquare, TrendingUp, Users, Car, Package } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Index = () => {
   const skills = [
@@ -12,22 +13,26 @@ const Index = () => {
     { name: "Data Visualization", icon: BarChart3, level: "Expert" }
   ];
 
-  const metrics = [
-    { label: "Total Trips", value: "1,517", icon: Car },
-    { label: "Completion Rate", value: "92.8%", icon: TrendingUp },
-    { label: "Avg Rating", value: "3.99", icon: Star },
-    { label: "Avg Price", value: "10.71K IQD", icon: Database }
-  ];
-
-  const insights = [
-    "Majority of trips occurred in March and December",
-    "Most users take between 5–9 trips",
-    "92.8% of trips were completed successfully",
-    "Najaf and Mosul were among the highest trip-generating regions",
-    "Some inactive drivers still hold high historical ratings"
-  ];
-
   const industries = ["Electronic Payments", "Customer Service", "Logistics"];
+
+  const projects = [
+    {
+      title: "Taxi Analytics Dashboard",
+      description: "Complete Power BI dashboard analyzing ride-hailing operations across Iraq's major regions",
+      icon: Car,
+      link: "/taxi-dashboard",
+      color: "from-blue-600/20 to-purple-600/20",
+      buttonColor: "bg-blue-600 hover:bg-blue-700"
+    },
+    {
+      title: "FMCG Sales Dashboard", 
+      description: "Python-based dashboard analyzing Fast-Moving Consumer Goods sales performance",
+      icon: Package,
+      link: "/fmcg-dashboard",
+      color: "from-green-600/20 to-blue-600/20",
+      buttonColor: "bg-green-600 hover:bg-green-700"
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
@@ -41,6 +46,10 @@ const Index = () => {
             </h1>
             <p className="text-2xl md:text-3xl text-blue-300 mb-8 font-light">
               Data Analyst & Visualization Expert
+            </p>
+            <p className="text-lg text-slate-300 mb-8 max-w-3xl mx-auto">
+              Specialized in transforming complex datasets into actionable insights using Power BI, Python, and SQL. 
+              Experienced in creating interactive dashboards and automated reporting solutions for various industries.
             </p>
             <div className="flex justify-center gap-4 mb-8 flex-wrap">
               <Badge variant="outline" className="text-blue-300 border-blue-300 px-4 py-2 text-lg">
@@ -83,112 +92,32 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Featured Project */}
+      {/* Featured Projects */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-blue-300">Featured Project</h2>
-            <p className="text-xl text-slate-300">Taxi Data Analytics Dashboard</p>
+            <h2 className="text-4xl font-bold mb-4 text-blue-300">Featured Projects</h2>
+            <p className="text-xl text-slate-300">Explore my data analytics and visualization work</p>
           </div>
 
-          {/* Project Hero */}
-          <Card className="bg-slate-800/50 border-slate-600 mb-12 overflow-hidden">
-            <CardContent className="p-0">
-              <div className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 p-8 text-center">
-                <BarChart3 className="w-16 h-16 text-blue-400 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-white mb-2">Taxi Analytics Dashboard</h3>
-                <p className="text-slate-300 text-lg">
-                  Complete Power BI dashboard analyzing ride-hailing operations across Iraq's major regions
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Key Metrics */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-            {metrics.map((metric, index) => (
-              <Card key={metric.label} className="bg-slate-700/50 border-slate-600 hover:bg-slate-700/70 transition-all duration-300">
-                <CardContent className="p-6 text-center">
-                  <metric.icon className="w-8 h-8 text-blue-400 mx-auto mb-3" />
-                  <div className="text-2xl font-bold text-white mb-1">{metric.value}</div>
-                  <div className="text-sm text-slate-400">{metric.label}</div>
+          <div className="grid md:grid-cols-2 gap-8">
+            {projects.map((project, index) => (
+              <Card key={project.title} className="bg-slate-800/50 border-slate-600 overflow-hidden hover:bg-slate-800/70 transition-all duration-300 hover-scale">
+                <CardContent className="p-0">
+                  <div className={`bg-gradient-to-r ${project.color} p-8 text-center`}>
+                    <project.icon className="w-16 h-16 text-blue-400 mx-auto mb-4" />
+                    <h3 className="text-2xl font-bold text-white mb-2">{project.title}</h3>
+                    <p className="text-slate-300 mb-6">{project.description}</p>
+                    <Link to={project.link}>
+                      <Button className={`${project.buttonColor} text-white px-6 py-3`}>
+                        View Project Details
+                      </Button>
+                    </Link>
+                  </div>
                 </CardContent>
               </Card>
             ))}
           </div>
-
-          {/* Project Details */}
-          <div className="grid md:grid-cols-2 gap-8">
-            <Card className="bg-slate-800/50 border-slate-600">
-              <CardHeader>
-                <CardTitle className="text-blue-300 flex items-center">
-                  <TrendingUp className="w-5 h-5 mr-2" />
-                  Key Insights
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
-                  {insights.map((insight, index) => (
-                    <li key={index} className="text-slate-300 flex items-start">
-                      <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                      {insight}
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-slate-800/50 border-slate-600">
-              <CardHeader>
-                <CardTitle className="text-blue-300 flex items-center">
-                  <Database className="w-5 h-5 mr-2" />
-                  Technologies & Features
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="text-white font-semibold mb-2">Tech Stack:</h4>
-                    <p className="text-slate-300">Power BI (DAX, Custom Visuals), SQL Server, Relational Modeling, M Query</p>
-                  </div>
-                  <div>
-                    <h4 className="text-white font-semibold mb-2">Interactive Features:</h4>
-                    <p className="text-slate-300">Date range filters, trip status controls, regional analysis, driver performance drill-downs</p>
-                  </div>
-                  <div>
-                    <h4 className="text-white font-semibold mb-2">Visualizations:</h4>
-                    <p className="text-slate-300">Line charts, bar charts, pie charts, KPI cards, ranking tables</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Additional Projects */}
-      <section className="py-16 bg-slate-800/30">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12 text-blue-300">Other Projects</h2>
-          <Card className="bg-slate-700/50 border-slate-600 max-w-4xl mx-auto">
-            <CardHeader>
-              <CardTitle className="text-white flex items-center">
-                <BarChart3 className="w-5 h-5 mr-2 text-blue-400" />
-                FMCG Sales Analysis Dashboard
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-slate-300 mb-4">
-                Python-based dashboard analyzing Fast-Moving Consumer Goods sales performance using advanced data manipulation and visualization techniques.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <Badge className="bg-blue-600/20 text-blue-300">Python</Badge>
-                <Badge className="bg-blue-600/20 text-blue-300">Pandas</Badge>
-                <Badge className="bg-blue-600/20 text-blue-300">Matplotlib</Badge>
-                <Badge className="bg-blue-600/20 text-blue-300">Plotly</Badge>
-              </div>
-            </CardContent>
-          </Card>
         </div>
       </section>
 
@@ -206,7 +135,7 @@ const Index = () => {
             </Button>
             <Button variant="outline" size="lg" className="border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white px-8 py-3">
               <Database className="w-5 h-5 mr-2" />
-              View Projects
+              Download Resume
             </Button>
           </div>
         </div>
