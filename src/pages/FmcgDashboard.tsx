@@ -1,6 +1,6 @@
-
 import { ArrowLeft, BarChart3, Database, TrendingUp, Package, DollarSign, Calendar } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -63,16 +63,22 @@ const FmcgDashboard = () => {
             </p>
           </div>
 
-          {/* Dashboard Screenshot */}
-          <Card className="bg-slate-800/50 border-slate-600 mb-16 overflow-hidden">
-            <CardContent className="p-0">
-              <img 
-                src="/lovable-uploads/b0215559-26a5-486e-9859-a77003e7e8f7.png" 
-                alt="FMCG Sales Analysis Dashboard Screenshot - Python dashboard showing sales metrics, product analysis, and data visualizations"
-                className="w-full h-auto object-contain"
-              />
-            </CardContent>
-          </Card>
+          {/* Dashboard Screenshot in Scrollable Frame */}
+          <div className="flex justify-center mb-16">
+            <Card className="bg-slate-800/50 border-slate-600 overflow-hidden w-full max-w-[1000px]">
+              <CardContent className="p-4">
+                <ScrollArea className="w-full">
+                  <div className="min-w-[800px]">
+                    <img 
+                      src="/lovable-uploads/b0215559-26a5-486e-9859-a77003e7e8f7.png" 
+                      alt="FMCG Sales Analysis Dashboard Screenshot - Python dashboard showing sales metrics, product analysis, and data visualizations"
+                      className="w-full h-auto object-contain rounded-lg"
+                    />
+                  </div>
+                </ScrollArea>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </section>
 
