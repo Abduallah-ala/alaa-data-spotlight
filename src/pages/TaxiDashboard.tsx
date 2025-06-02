@@ -62,14 +62,14 @@ const TaxiDashboard = () => {
             </p>
           </div>
 
-          {/* Dashboard Screenshot Placeholder */}
+          {/* Dashboard Screenshot */}
           <Card className="bg-slate-800/50 border-slate-600 mb-16 overflow-hidden">
             <CardContent className="p-0">
-              <div className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 p-12 text-center">
-                <BarChart3 className="w-24 h-24 text-blue-400 mx-auto mb-4" />
-                <p className="text-slate-300 text-lg">Dashboard Screenshot</p>
-                <p className="text-slate-400 text-sm mt-2">Interactive Power BI Dashboard View</p>
-              </div>
+              <img 
+                src="/lovable-uploads/64e885d6-d60e-4c4e-bee5-1b491676b3bd.png" 
+                alt="Taxi Analytics Dashboard Screenshot - Power BI Dashboard showing trip metrics, KPIs, charts and data visualizations"
+                className="w-full h-auto object-contain"
+              />
             </CardContent>
           </Card>
         </div>
