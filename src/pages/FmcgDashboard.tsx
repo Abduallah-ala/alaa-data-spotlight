@@ -63,14 +63,14 @@ const FmcgDashboard = () => {
             </p>
           </div>
 
-          {/* Dashboard Screenshot Placeholder */}
+          {/* Dashboard Screenshot */}
           <Card className="bg-slate-800/50 border-slate-600 mb-16 overflow-hidden">
             <CardContent className="p-0">
-              <div className="bg-gradient-to-r from-green-600/20 to-blue-600/20 p-12 text-center">
-                <Package className="w-24 h-24 text-green-400 mx-auto mb-4" />
-                <p className="text-slate-300 text-lg">FMCG Dashboard Screenshot</p>
-                <p className="text-slate-400 text-sm mt-2">Python-powered Sales Analytics View</p>
-              </div>
+              <img 
+                src="/lovable-uploads/b0215559-26a5-486e-9859-a77003e7e8f7.png" 
+                alt="FMCG Sales Analysis Dashboard Screenshot - Python dashboard showing sales metrics, product analysis, and data visualizations"
+                className="w-full h-auto object-contain"
+              />
             </CardContent>
           </Card>
         </div>
