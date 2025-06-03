@@ -1,4 +1,5 @@
-import { ArrowLeft, BarChart3, Database, TrendingUp, Package, DollarSign, Calendar } from 'lucide-react';
+
+import { ArrowLeft, BarChart3, Database, TrendingUp, Package, DollarSign, Calendar, ExternalLink } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
@@ -63,21 +64,22 @@ const FmcgDashboard = () => {
             </p>
           </div>
 
-          {/* Dashboard Screenshot in Scrollable Frame */}
+          {/* View Project Button */}
           <div className="flex justify-center mb-16">
-            <Card className="bg-slate-800/50 border-slate-600 overflow-hidden w-full max-w-[1000px]">
-              <CardContent className="p-4">
-                <ScrollArea className="w-full">
-                  <div className="min-w-[800px]">
-                    <img 
-                      src="/lovable-uploads/b0215559-26a5-486e-9859-a77003e7e8f7.png" 
-                      alt="FMCG Sales Analysis Dashboard Screenshot - Python dashboard showing sales metrics, product analysis, and data visualizations"
-                      className="w-full h-auto object-contain rounded-lg"
-                    />
-                  </div>
-                </ScrollArea>
-              </CardContent>
-            </Card>
+            <Button
+              asChild
+              className="bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white px-8 py-4 text-lg font-semibold transition-all duration-300 transform hover:scale-105"
+            >
+              <a
+                href="https://pdf.ac/1qX2Bz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
+              >
+                VIEW THE PROJECT
+                <ExternalLink className="w-5 h-5" />
+              </a>
+            </Button>
           </div>
         </div>
       </section>
