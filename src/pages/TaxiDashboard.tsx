@@ -1,11 +1,13 @@
-
 import { ArrowLeft, BarChart3, Database, TrendingUp, Car, Star, MapPin, Calendar, Users } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { ScrollToTopLink } from "@/components/ScrollToTopLink";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const TaxiDashboard = () => {
+  const { translations } = useLanguage();
+  
   const kpis = [
     { label: "Total Trips", value: "1,517", icon: Car, color: "text-blue-400" },
     { label: "Completed Trips", value: "1,373", icon: TrendingUp, color: "text-green-400" },
@@ -41,12 +43,12 @@ const TaxiDashboard = () => {
       {/* Header */}
       <header className="border-b border-slate-700 bg-slate-900/50">
         <div className="max-w-7xl mx-auto px-6 py-4">
-          <Link to="/">
+          <ScrollToTopLink to="/">
             <Button variant="ghost" className="text-blue-400 hover:text-blue-300 hover:bg-slate-800">
               <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Portfolio
+              <span data-i18n="backToPortfolio">{translations.backToPortfolio}</span>
             </Button>
-          </Link>
+          </ScrollToTopLink>
         </div>
       </header>
 
@@ -78,7 +80,7 @@ const TaxiDashboard = () => {
       {/* KPIs Section */}
       <section className="py-16 bg-slate-800/30">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12 text-blue-300">Key Performance Indicators</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 text-blue-300" data-i18n="kpis">{translations.kpis}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {kpis.map((kpi, index) => (
               <Card key={kpi.label} className="bg-slate-700/50 border-slate-600 hover:bg-slate-700/70 transition-all duration-300">
@@ -102,7 +104,7 @@ const TaxiDashboard = () => {
               <CardHeader>
                 <CardTitle className="text-blue-300 flex items-center">
                   <TrendingUp className="w-5 h-5 mr-2" />
-                  Key Insights
+                  <span data-i18n="keyInsights">{translations.keyInsights}</span>
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -122,7 +124,7 @@ const TaxiDashboard = () => {
               <CardHeader>
                 <CardTitle className="text-blue-300 flex items-center">
                   <Database className="w-5 h-5 mr-2" />
-                  Technologies Used
+                  <span data-i18n="technologiesUsed">{translations.technologiesUsed}</span>
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -143,7 +145,7 @@ const TaxiDashboard = () => {
             <CardHeader>
               <CardTitle className="text-blue-300 flex items-center">
                 <BarChart3 className="w-5 h-5 mr-2" />
-                Interactive Features
+                <span data-i18n="interactiveFeatures">{translations.interactiveFeatures}</span>
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -163,8 +165,8 @@ const TaxiDashboard = () => {
       {/* Footer */}
       <footer className="py-8 bg-slate-900 border-t border-slate-700">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <p className="text-slate-400">
-            © 2024 Abdullah Alaa - Data Analyst & Visualization Expert
+          <p className="text-slate-400" data-i18n="copyright">
+            {translations.copyright}
           </p>
         </div>
       </footer>
