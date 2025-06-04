@@ -1,41 +1,43 @@
-
 import { BarChart3, Database, Globe, MessageSquare, TrendingUp, Users, Car, Package, Mail, Linkedin } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-
 const Index = () => {
-  const skills = [
-    { name: "Power BI", icon: BarChart3, level: "Advanced" },
-    { name: "Python (Pandas)", icon: Database, level: "Intermediate" },
-    { name: "SQL", icon: TrendingUp, level: "Advanced" },
-    { name: "Data Visualization", icon: BarChart3, level: "Expert" }
-  ];
-
+  const skills = [{
+    name: "Power BI",
+    icon: BarChart3,
+    level: "Advanced"
+  }, {
+    name: "Python (Pandas)",
+    icon: Database,
+    level: "Intermediate"
+  }, {
+    name: "SQL",
+    icon: TrendingUp,
+    level: "Advanced"
+  }, {
+    name: "Data Visualization",
+    icon: BarChart3,
+    level: "Expert"
+  }];
   const industries = ["Electronic Payments", "Customer Service", "Logistics"];
-
-  const projects = [
-    {
-      title: "Taxi Analytics Dashboard",
-      description: "Complete Power BI dashboard analyzing ride-hailing operations across Iraq's major regions",
-      icon: Car,
-      link: "/taxi-dashboard",
-      color: "from-blue-600/20 to-purple-600/20",
-      buttonColor: "bg-blue-600 hover:bg-blue-700"
-    },
-    {
-      title: "FMCG Sales Dashboard", 
-      description: "Python-based dashboard analyzing Fast-Moving Consumer Goods sales performance",
-      icon: Package,
-      link: "/fmcg-dashboard",
-      color: "from-green-600/20 to-blue-600/20",
-      buttonColor: "bg-green-600 hover:bg-green-700"
-    }
-  ];
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+  const projects = [{
+    title: "Taxi Analytics Dashboard",
+    description: "Complete Power BI dashboard analyzing ride-hailing operations across Iraq's major regions",
+    icon: Car,
+    link: "/taxi-dashboard",
+    color: "from-blue-600/20 to-purple-600/20",
+    buttonColor: "bg-blue-600 hover:bg-blue-700"
+  }, {
+    title: "FMCG Sales Dashboard",
+    description: "Python-based dashboard analyzing Fast-Moving Consumer Goods sales performance",
+    icon: Package,
+    link: "/fmcg-dashboard",
+    color: "from-green-600/20 to-blue-600/20",
+    buttonColor: "bg-green-600 hover:bg-green-700"
+  }];
+  return <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20"></div>
@@ -62,11 +64,9 @@ const Index = () => {
               </Badge>
             </div>
             <div className="flex justify-center gap-4 flex-wrap">
-              {industries.map((industry) => (
-                <Badge key={industry} className="bg-slate-700/50 text-slate-300 px-3 py-1">
+              {industries.map(industry => <Badge key={industry} className="bg-slate-700/50 text-slate-300 px-3 py-1">
                   {industry}
-                </Badge>
-              ))}
+                </Badge>)}
             </div>
           </div>
         </div>
@@ -77,8 +77,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-center mb-12 text-blue-300">Technical Expertise</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {skills.map((skill, index) => (
-              <Card key={skill.name} className="bg-slate-700/50 border-slate-600 hover:bg-slate-700/70 transition-all duration-300 hover-scale">
+            {skills.map((skill, index) => <Card key={skill.name} className="bg-slate-700/50 border-slate-600 hover:bg-slate-700/70 transition-all duration-300 hover-scale">
                 <CardContent className="p-6 text-center">
                   <skill.icon className="w-8 h-8 text-blue-400 mx-auto mb-4" />
                   <h3 className="text-lg font-semibold text-white mb-2">{skill.name}</h3>
@@ -86,8 +85,7 @@ const Index = () => {
                     {skill.level}
                   </Badge>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -96,13 +94,12 @@ const Index = () => {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-blue-300">Featured Projects</h2>
+            <h2 className="text-4xl font-bold mb-4 text-blue-300">My Projects</h2>
             <p className="text-xl text-slate-300">Explore my data analytics and visualization work</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {projects.map((project, index) => (
-              <Card key={project.title} className="bg-slate-800/50 border-slate-600 overflow-hidden hover:bg-slate-800/70 transition-all duration-300 hover-scale">
+            {projects.map((project, index) => <Card key={project.title} className="bg-slate-800/50 border-slate-600 overflow-hidden hover:bg-slate-800/70 transition-all duration-300 hover-scale">
                 <CardContent className="p-0">
                   <div className={`bg-gradient-to-r ${project.color} p-8 text-center`}>
                     <project.icon className="w-16 h-16 text-blue-400 mx-auto mb-4" />
@@ -115,8 +112,7 @@ const Index = () => {
                     </Link>
                   </div>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -129,27 +125,14 @@ const Index = () => {
             Ready to transform your data into actionable insights? Let's discuss your next project.
           </p>
           <div className="flex justify-center gap-4 flex-wrap">
-            <Button 
-              asChild 
-              size="lg" 
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3"
-            >
+            <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3">
               <a href="mailto:abduallah.alaa.as@gamil.com">
                 <Mail className="w-5 h-5 mr-2" />
                 Get In Touch
               </a>
             </Button>
-            <Button 
-              asChild
-              variant="outline" 
-              size="lg" 
-              className="border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white px-8 py-3"
-            >
-              <a 
-                href="https://www.linkedin.com/in/abdullah-alaa-662173169/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
+            <Button asChild variant="outline" size="lg" className="border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white px-8 py-3">
+              <a href="https://www.linkedin.com/in/abdullah-alaa-662173169/" target="_blank" rel="noopener noreferrer">
                 <Linkedin className="w-5 h-5 mr-2" />
                 Connect on LinkedIn
               </a>
@@ -166,8 +149,6 @@ const Index = () => {
           </p>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
