@@ -4,11 +4,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ScrollToTopLink } from "@/components/ScrollToTopLink";
-import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Index = () => {
-  const { translations } = useLanguage();
+  const { translations, language, setLanguage } = useLanguage();
   
   const skills = [{
     name: "Power BI",
@@ -47,11 +46,6 @@ const Index = () => {
   }];
 
   return <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
-      {/* Language Switcher */}
-      <div className="absolute top-4 right-4 z-50">
-        <LanguageSwitcher />
-      </div>
-
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20"></div>
@@ -67,13 +61,29 @@ const Index = () => {
               {translations.intro}
             </p>
             <div className="flex justify-center gap-4 mb-8 flex-wrap">
-              <Badge variant="outline" className="text-blue-300 border-blue-300 px-4 py-2 text-lg">
+              <Badge 
+                variant="outline" 
+                className={`border-blue-300 px-4 py-2 text-lg cursor-pointer transition-colors ${
+                  language === 'en' 
+                    ? 'text-blue-300 bg-blue-600/20' 
+                    : 'text-blue-300 hover:bg-blue-600/10'
+                }`}
+                onClick={() => setLanguage('en')}
+              >
                 <Globe className="w-4 h-4 mr-2" />
                 English
               </Badge>
-              <Badge variant="outline" className="text-blue-300 border-blue-300 px-4 py-2 text-lg">
+              <Badge 
+                variant="outline" 
+                className={`border-blue-300 px-4 py-2 text-lg cursor-pointer transition-colors ${
+                  language === 'ar' 
+                    ? 'text-blue-300 bg-blue-600/20' 
+                    : 'text-blue-300 hover:bg-blue-600/10'
+                }`}
+                onClick={() => setLanguage('ar')}
+              >
                 <MessageSquare className="w-4 h-4 mr-2" />
-                Arabic
+                العربية
               </Badge>
             </div>
             <div className="flex justify-center gap-4 flex-wrap">
